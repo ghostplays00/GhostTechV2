@@ -1,0 +1,51 @@
+name: GhostTechV2
+version: '${version}'
+description: $description
+main: org.ghostplays.ghosttech.internal.GhostTechPlugin
+api-version: '1.21'
+prefix: GhostTech
+load: POSTWORLD
+authors: [ Ghostplays00 ]
+website: https://github.com/ghostplays00/GhostTechV2
+
+# Triumph (GUI) and the SQLite JDBC driver are resolved by the server at startup, so neither is
+# bundled into the plugin jar. Bumping a version here is enough; no shading required.
+libraries:
+  - dev.triumphteam:triumph-gui:3.1.13
+  - org.xerial:sqlite-jdbc:3.53.4.0
+
+commands:
+  ghosttech:
+    description: GhostTech main command
+    aliases: [ gt, ghosttechv2 ]
+    usage: /ghosttech help
+
+permissions:
+  ghosttech.*:
+    description: Every GhostTech permission
+    default: op
+    children:
+      ghosttech.command: true
+      ghosttech.command.reload: true
+      ghosttech.command.block: true
+      ghosttech.command.multiblock: true
+      ghosttech.command.permissions: true
+      ghosttech.module.admin: true
+  ghosttech.command:
+    description: Use any GhostTech command
+    default: op
+  ghosttech.command.reload:
+    description: Reload GhostTech and its modules
+    default: op
+  ghosttech.command.block:
+    description: List and give custom blocks
+    default: op
+  ghosttech.command.multiblock:
+    description: Inspect multiblocks
+    default: op
+  ghosttech.command.permissions:
+    description: List permission nodes and groups
+    default: op
+  ghosttech.module.admin:
+    description: Administer loaded modules
+    default: op

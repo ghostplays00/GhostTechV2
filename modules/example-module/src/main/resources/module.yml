@@ -1,0 +1,18 @@
+# GhostTech V2 module descriptor.
+#
+# This file must be at the root of the module jar. `id` becomes the namespace for every content ID
+# the module registers, so it must be unique across all installed modules.
+
+id: example
+name: Example Module
+version: 1.0.0
+main: org.ghostplays.example.ExampleModule
+api-version: "1.0"
+authors: [ Ghostplays00 ]
+description: Demonstrates custom blocks, multiblocks, GUI, commands and module messaging
+
+# Hard dependencies. This module is skipped entirely if one is missing.
+depend: [ ]
+
+# Soft dependencies. Loaded first when present, never required.
+soft-depend: [ ]

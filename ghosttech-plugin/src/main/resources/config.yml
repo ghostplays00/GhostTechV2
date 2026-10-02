@@ -1,0 +1,48 @@
+# GhostTech V2 configuration
+#
+# Messages use MiniMessage formatting, so <yellow>, <bold>, <red> and friends work here.
+# Legacy '&' colour codes also work in most fields.
+
+prefix: "&8[&6GhostTech&8] &r"
+
+# Show a summary of loaded modules, blocks and multiblocks in the console on startup.
+log-startup-summary: true
+
+# Permission groups.
+#
+# A group can inherit from another with `inherit`, which is resolved transitively. Groups are
+# assigned to players with /ghosttech perms or by a permission plugin.
+#
+# Example:
+#   member:
+#     nodes:
+#       - ghosttech.command
+#   builder:
+#     inherit:
+#       - member
+#     nodes:
+#       - ghosttech.command.block
+permission-groups:
+  default:
+    nodes:
+      - ghosttech.command
+  builder:
+    inherit:
+      - default
+    nodes:
+      - ghosttech.command.block
+      - ghosttech.command.multiblock
+  admin:
+    nodes:
+      - ghosttech.*
+
+# Storage
+storage:
+  # Number of slots a personal storage GUI gets by default (rows * 9).
+  default-rows: 6
+
+# Multiblocks
+multiblock:
+  # How many candidate origins around a newly placed block are tested for a shape match.
+  # Higher values catch more shapes but cost more block lookups on every placement.
+  search-radius: 8
